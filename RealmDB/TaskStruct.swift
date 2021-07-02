@@ -6,7 +6,9 @@
 //
 
 import Foundation
+import RealmSwift
 
-class TaskStruct{
+class TaskStruct: Object {
+    @objc dynamic var task = ""
     
 }
