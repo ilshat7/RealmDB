@@ -85,7 +85,11 @@
                                 <action selector="addTaskButton:" destination="QUZ-8s-JFJ" id="yb8-hv-3tF"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Изменить" id="bhL-9E-qys"/>
+                        <barButtonItem key="rightBarButtonItem" title="Изменить" id="bhL-9E-qys">
+                            <connections>
+                                <action selector="editButton:" destination="QUZ-8s-JFJ" id="B58-Bg-3bl"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0R3-cy-aGo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
