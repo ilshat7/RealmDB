@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B61CE2B2694BAA4008BD1CE /* CDTasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B61CE2A2694BAA4008BD1CE /* CDTasksTableViewController.swift */; };
+		3B61CE2E2694BAC7008BD1CE /* RealmDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3B61CE2C2694BAC7008BD1CE /* RealmDB.xcdatamodeld */; };
 		3BB9C1D3268EE9C0001F263A /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9C1D2268EE9C0001F263A /* Persistence.swift */; };
 		3BB9C1D5268EFC55001F263A /* TasksTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9C1D4268EFC55001F263A /* TasksTableViewController.swift */; };
 		3BB9C1D7268EFECF001F263A /* TaskStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BB9C1D6268EFECF001F263A /* TaskStruct.swift */; };
@@ -21,6 +23,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3B61CE2A2694BAA4008BD1CE /* CDTasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CDTasksTableViewController.swift; sourceTree = "<group>"; };
+		3B61CE2D2694BAC7008BD1CE /* RealmDB.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RealmDB.xcdatamodel; sourceTree = "<group>"; };
 		3BB9C1D2268EE9C0001F263A /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		3BB9C1D4268EFC55001F263A /* TasksTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TasksTableViewController.swift; sourceTree = "<group>"; };
 		3BB9C1D6268EFECF001F263A /* TaskStruct.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskStruct.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 				3BCF56DE268B6BDB008EAA46 /* ViewController.swift */,
 				3BB9C1D2268EE9C0001F263A /* Persistence.swift */,
 				3BCF56E0268B6BDB008EAA46 /* Main.storyboard */,
+				3B61CE2A2694BAA4008BD1CE /* CDTasksTableViewController.swift */,
+				3B61CE2C2694BAC7008BD1CE /* RealmDB.xcdatamodeld */,
 				3BB9C1D4268EFC55001F263A /* TasksTableViewController.swift */,
 				3BB9C1D6268EFECF001F263A /* TaskStruct.swift */,
 				3BCF56E3268B6BDC008EAA46 /* Assets.xcassets */,
@@ -160,6 +166,8 @@
 				3BCF56DF268B6BDB008EAA46 /* ViewController.swift in Sources */,
 				3BB9C1D5268EFC55001F263A /* TasksTableViewController.swift in Sources */,
 				3BB9C1D3268EE9C0001F263A /* Persistence.swift in Sources */,
+				3B61CE2E2694BAC7008BD1CE /* RealmDB.xcdatamodeld in Sources */,
+				3B61CE2B2694BAA4008BD1CE /* CDTasksTableViewController.swift in Sources */,
 				3BB9C1D7268EFECF001F263A /* TaskStruct.swift in Sources */,
 				3BCF56DB268B6BDB008EAA46 /* AppDelegate.swift in Sources */,
 				3BCF56DD268B6BDB008EAA46 /* SceneDelegate.swift in Sources */,
@@ -388,6 +396,19 @@
 			productName = RealmSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		3B61CE2C2694BAC7008BD1CE /* RealmDB.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3B61CE2D2694BAC7008BD1CE /* RealmDB.xcdatamodel */,
+			);
+			currentVersion = 3B61CE2D2694BAC7008BD1CE /* RealmDB.xcdatamodel */;
+			path = RealmDB.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 3BCF56CF268B6BDB008EAA46 /* Project object */;
 }

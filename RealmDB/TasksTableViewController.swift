@@ -112,5 +112,4 @@ class TasksTableViewController: UITableViewController {
         tableView.isEditing = !tableView.isEditing
         sender.title = tableView.isEditing ? "Закончить" : "Изменить"
     }
-    
 }

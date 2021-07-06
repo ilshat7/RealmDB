@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="v9B-GH-qzN">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WJE-oL-H0A">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
@@ -78,8 +78,7 @@
                             <outlet property="delegate" destination="QUZ-8s-JFJ" id="RFY-HQ-kwW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="psy-kt-vvO">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Realm" id="psy-kt-vvO">
                         <barButtonItem key="leftBarButtonItem" title="Добавить" id="ouy-57-u4j">
                             <connections>
                                 <action selector="addTaskButton:" destination="QUZ-8s-JFJ" id="yb8-hv-3tF"/>
@@ -113,6 +112,64 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yyl-Yp-Tod" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="19" y="797"/>
+        </scene>
+        <!--Core Data-->
+        <scene sceneID="cDP-Z0-7aa">
+            <objects>
+                <tableViewController id="BKJ-c7-BnL" customClass="CDTasksTableViewController" customModule="RealmDB" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Jcd-1R-nde">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="taskCell" id="4IZ-z5-fE1">
+                                <rect key="frame" x="0.0" y="24.5" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="4IZ-z5-fE1" id="ftu-Df-Igf">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="BKJ-c7-BnL" id="75x-Lb-IaE"/>
+                            <outlet property="delegate" destination="BKJ-c7-BnL" id="7ZS-wD-4Kd"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Core Data" id="YYO-Qi-HXf">
+                        <barButtonItem key="leftBarButtonItem" style="done" systemItem="compose" id="ykV-Xb-ohl">
+                            <connections>
+                                <action selector="editBtn:" destination="BKJ-c7-BnL" id="USM-aO-SVi"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="add" id="3yS-cg-qlb">
+                            <connections>
+                                <action selector="addTaskButton:" destination="BKJ-c7-BnL" id="fHj-eq-ndj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OB9-yz-gxF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="842" y="1484"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QVV-JX-V2w">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="WJE-oL-H0A" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="G09-lO-Bja">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BKJ-c7-BnL" kind="relationship" relationship="rootViewController" id="tdW-Nc-eVT"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7HD-sa-RXs" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="1483.9285714285713"/>
         </scene>
     </scenes>
     <resources>

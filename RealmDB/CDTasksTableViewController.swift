@@ -1,0 +1,107 @@
+//
+//  TaskTableViewController.swift
+//  CoreDataFirst
+//
+//  Created by Ильшат Мухамедьянов on 04.07.2021.
+//
+
+import UIKit
+import CoreData
+
+class CDTasksTableViewController: UITableViewController {
+
+    var tasks = [TaskStructure]()
+    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        let fetch = TaskStructure.fetchRequest() as NSFetchRequest<TaskStructure>
+        let sort = NSSortDescriptor(key: "index", ascending: true)
+        fetch.sortDescriptors = [sort]
+        do {
+            tasks = try managedContext.fetch(fetch)
+        }catch {
+            print("Error read")
+        }
+    }
+    
+    @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
+        let alert = UIAlertController(title: "Новая задача", message: nil, preferredStyle: .alert)
+        let saveAction = UIAlertAction(title: "Сохранить", style: .default) { action in
+            guard let text = alert.textFields?.first?.text else { return }
+            self.save(task: text)
+            self.tableView.reloadData()
+        }
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        alert.addTextField()
+        alert.textFields?[0].placeholder = "Введите задачу"
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    }
+    
+    // MARK: - Save data
+    func save (task: String){
+        let tasksEntity = TaskStructure(entity: TaskStructure.entity(), insertInto: managedContext)
+        tasksEntity.task = task
+        tasksEntity.index = Int64(tasks.endIndex)
+        appDelegate.saveContext()
+        tasks.append(tasksEntity)
+    }
+    
+    // MARK: - Table view data source
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return tasks.count
+    }
+
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
+        cell.textLabel?.text = tasks[indexPath.row].task
+        return cell
+    }
+    
+    //MARK: - Delete item
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            let task = tasks[indexPath.row]
+            tasks.remove(at: indexPath.row)
+            managedContext.delete(task)
+            appDelegate.saveContext()
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            
+        }
+    }
+    
+    //MARK: - Move item
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        let tempItem = tasks[sourceIndexPath.row]
+        tasks.remove(at: sourceIndexPath.row)
+        tasks.insert(tempItem, at: destinationIndexPath.row)
+        
+        for (index,task) in tasks.enumerated(){
+             task.index = Int64(index)
+        }
+        appDelegate.saveContext()
+        tableView.reloadData()
+    }
+    
+    @IBAction func editBtn(_ sender: UIBarButtonItem) {
+        tableView.isEditing = !tableView.isEditing
+    }
+    
+    
+}
+
+
