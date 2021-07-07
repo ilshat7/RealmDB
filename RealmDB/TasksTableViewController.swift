@@ -20,41 +20,23 @@ class TasksTableViewController: UITableViewController {
     }
 
     @IBAction func addTaskButton(_ sender: Any) {
-        // Создание алёрт контроллера
-        let alert = UIAlertController(title: "Новая задача", message: "Пожалуйста заполните поле", preferredStyle: .alert)
-        
-        // Создание текстового поля
-        var alertTextField: UITextField!
-        alert.addTextField { textField in
-            alertTextField = textField
-            textField.placeholder = "Новая задача"
-        }
-        
-        // Создание кнопки для сохранения новых значений
+        let alert = UIAlertController(title: "Новая задача", message: nil, preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { action in
-            
-            // Проверяем не является ли текстовое поле пустым
-            guard let text = alertTextField.text, alertTextField.text?.isEmpty == false else {return}
-            
-            // Добавляем в массив новую задачу из текстового поля
-//            self.tasksArray.append((alert.textFields?.first?.text)!)
-            
+            guard let text = alert.textFields?.first?.text else { return }
             let task = TaskStruct()
             task.task = text
             try! self.realm.write {
                 self.realm.add(task)
             }
-            // Обновляем таблицу
             self.tableView.reloadData()
         }
-        
-        // Создаем кнопку для отмены ввода новой задачи
-        let cancelAction = UIAlertAction(title: "Отмена", style: .destructive, handler: nil)
-        
-        alert.addAction(saveAction) // Присваиваем алёрту кнопку для сохранения результата
-        alert.addAction(cancelAction) // Присваиваем алерут кнопку для отмены ввода новой задачи
-        
-        present(alert, animated: true, completion: nil) // Вызываем алёрт контроллер
+        let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
+        alert.addTextField()
+        alert.textFields?[0].placeholder = "Введите задачу"
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        present(alert, animated: true)
+    
     }
     // MARK: - Table view data source
 
@@ -74,7 +56,7 @@ class TasksTableViewController: UITableViewController {
         cell.textLabel?.text = tasksArray[indexPath.row].task
         return cell
     }
-    
+    //MARK: - Delete item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {(_,_,complition) in
             try! self.realm.write {
@@ -86,7 +68,7 @@ class TasksTableViewController: UITableViewController {
         let deleteActionConfig = UISwipeActionsConfiguration(actions: [deleteAction])
         return deleteActionConfig
     }
-    
+    //MARK: - Move item
     override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         var tempArray = [String]()
         for task in tasksArray {
