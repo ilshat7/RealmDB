@@ -26,9 +26,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkj-Hq-OzO">
-                                <rect key="frame" x="169" y="194" width="77" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hkj-Hq-OzO">
+                                <rect key="frame" x="168.5" y="194" width="77" height="30"/>
                                 <state key="normal" title="Сохранить"/>
                                 <connections>
                                     <action selector="saveButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HtT-Bu-owB"/>
@@ -40,10 +39,12 @@
                         <constraints>
                             <constraint firstItem="lX6-cC-VkM" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="38" id="Ngz-Zr-8BB"/>
                             <constraint firstItem="pNb-Fa-RDG" firstAttribute="top" secondItem="lX6-cC-VkM" secondAttribute="bottom" constant="24" id="OJy-VW-eIr"/>
+                            <constraint firstItem="Hkj-Hq-OzO" firstAttribute="top" secondItem="pNb-Fa-RDG" secondAttribute="bottom" constant="20" id="Y8t-bi-LNb"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lX6-cC-VkM" secondAttribute="trailing" constant="20" id="adO-OH-q5p"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="pNb-Fa-RDG" secondAttribute="trailing" constant="20" id="nKN-Ns-e1L"/>
                             <constraint firstItem="lX6-cC-VkM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="rJv-Hz-gHY"/>
                             <constraint firstItem="pNb-Fa-RDG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="xgI-23-BA9"/>
+                            <constraint firstItem="Hkj-Hq-OzO" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="yCJ-ck-D7I"/>
                         </constraints>
                     </view>
                     <connections>
