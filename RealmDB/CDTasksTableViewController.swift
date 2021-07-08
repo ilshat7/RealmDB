@@ -6,36 +6,26 @@
 //
 
 import UIKit
-import CoreData
+
 
 class CDTasksTableViewController: UITableViewController {
 
-    var tasks = [TaskStructure]()
-    
-    let appDelegate = UIApplication.shared.delegate as! AppDelegate
-    let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        let fetch = TaskStructure.fetchRequest() as NSFetchRequest<TaskStructure>
-        let sort = NSSortDescriptor(key: "index", ascending: true)
-        fetch.sortDescriptors = [sort]
-        do {
-            tasks = try managedContext.fetch(fetch)
-        }catch {
-            print("Error read")
-        }
+        loadData()
     }
     
     @IBAction func addTaskButton(_ sender: UIBarButtonItem) {
         let alert = UIAlertController(title: "Новая задача", message: nil, preferredStyle: .alert)
         let saveAction = UIAlertAction(title: "Сохранить", style: .default) { action in
             guard let text = alert.textFields?.first?.text else { return }
-            self.save(task: text)
+            save(task: text)
             self.tableView.reloadData()
         }
         let cancelAction = UIAlertAction(title: "Отмена", style: .cancel)
@@ -44,15 +34,6 @@ class CDTasksTableViewController: UITableViewController {
         alert.addAction(saveAction)
         alert.addAction(cancelAction)
         present(alert, animated: true)
-    }
-    
-    // MARK: - Save data
-    func save (task: String){
-        let tasksEntity = TaskStructure(entity: TaskStructure.entity(), insertInto: managedContext)
-        tasksEntity.task = task
-        tasksEntity.index = Int64(tasks.endIndex)
-        appDelegate.saveContext()
-        tasks.append(tasksEntity)
     }
     
     // MARK: - Table view data source
@@ -103,5 +84,3 @@ class CDTasksTableViewController: UITableViewController {
     
     
 }
-
-

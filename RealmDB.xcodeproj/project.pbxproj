@@ -20,6 +20,7 @@
 		3BCF56E7268B6BDC008EAA46 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BCF56E5268B6BDC008EAA46 /* LaunchScreen.storyboard */; };
 		3BCF56F0268B6C65008EAA46 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 3BCF56EF268B6C65008EAA46 /* Realm */; };
 		3BCF56F2268B6C65008EAA46 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 3BCF56F1268B6C65008EAA46 /* RealmSwift */; };
+		3BD93AF62697512E00E5FE3E /* CoreDataLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD93AF52697512E00E5FE3E /* CoreDataLink.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		3BCF56E3268B6BDC008EAA46 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BCF56E6268B6BDC008EAA46 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BCF56E8268B6BDC008EAA46 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3BD93AF52697512E00E5FE3E /* CoreDataLink.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataLink.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 				3BB9C1D2268EE9C0001F263A /* Persistence.swift */,
 				3BCF56E0268B6BDB008EAA46 /* Main.storyboard */,
 				3B61CE2A2694BAA4008BD1CE /* CDTasksTableViewController.swift */,
+				3BD93AF52697512E00E5FE3E /* CoreDataLink.swift */,
 				3B61CE2C2694BAC7008BD1CE /* RealmDB.xcdatamodeld */,
 				3BB9C1D4268EFC55001F263A /* TasksTableViewController.swift */,
 				3BB9C1D6268EFECF001F263A /* TaskStruct.swift */,
@@ -204,6 +207,7 @@
 				3BB9C1D3268EE9C0001F263A /* Persistence.swift in Sources */,
 				3B61CE2E2694BAC7008BD1CE /* RealmDB.xcdatamodeld in Sources */,
 				3B61CE2B2694BAA4008BD1CE /* CDTasksTableViewController.swift in Sources */,
+				3BD93AF62697512E00E5FE3E /* CoreDataLink.swift in Sources */,
 				3BB9C1D7268EFECF001F263A /* TaskStruct.swift in Sources */,
 				3BCF56DB268B6BDB008EAA46 /* AppDelegate.swift in Sources */,
 				3BCF56DD268B6BDB008EAA46 /* SceneDelegate.swift in Sources */,

@@ -6,13 +6,11 @@
 //
 
 import UIKit
-import RealmSwift
+
 
 class TasksTableViewController: UITableViewController {
     
-    let realm = try! Realm()
-    
-    var tasksArray: Results<TaskStruct>!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +23,8 @@ class TasksTableViewController: UITableViewController {
             guard let text = alert.textFields?.first?.text else { return }
             let task = TaskStruct()
             task.task = text
-            try! self.realm.write {
-                self.realm.add(task)
+            try! realm.write {
+                realm.add(task)
             }
             self.tableView.reloadData()
         }
@@ -41,16 +39,13 @@ class TasksTableViewController: UITableViewController {
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
         return tasksArray.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "taskCell", for: indexPath)
         cell.textLabel?.text = tasksArray[indexPath.row].task
@@ -59,8 +54,8 @@ class TasksTableViewController: UITableViewController {
     //MARK: - Delete item
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(style: .destructive, title: "Удалить") {(_,_,complition) in
-            try! self.realm.write {
-                self.realm.delete(self.tasksArray[indexPath.row])
+            try! realm.write {
+                realm.delete(tasksArray[indexPath.row])
             }
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
@@ -83,8 +78,8 @@ class TasksTableViewController: UITableViewController {
         for item in tempArray {
             let task = TaskStruct()
             task.task = item
-            try! self.realm.write {
-                self.realm.add(task)
+            try! realm.write {
+                realm.add(task)
             }
         }
         
